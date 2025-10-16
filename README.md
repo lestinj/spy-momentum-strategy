@@ -1,2 +1,3 @@
-# spy-momentum-strategy
-Momentum based SPY trading strategy with minimum downside risk
+# SPY Momentum Strategy
+
+Trading strategy using SPY options with multi-layer momentum confirmation.

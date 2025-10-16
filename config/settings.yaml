@@ -1,0 +1,10 @@
+data_source: 'yahoo'
+macro_indicators:
+  - 'LEI'
+risk:
+  stop_loss_pct: 0.05
+cost_control:
+  max_transaction_cost: 0.01
+momentum:
+  short_window: 20
+  long_window: 50
