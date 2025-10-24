@@ -23,32 +23,73 @@ warnings.filterwarnings('ignore')
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import StandardScaler
 
+# Unified configuration support
+import os
+try:
+    from trading_config import TradingConfig
+    UNIFIED_CONFIG_AVAILABLE = True
+except ImportError:
+    UNIFIED_CONFIG_AVAILABLE = False
+
 
 class MLOptimizedV49:
     """
     Optimal ML enhancement that SIZES positions, doesn't FILTER trades
     """
     
-    def __init__(self, initial_capital=66000):
-        self.initial_capital = initial_capital
-        self.capital = initial_capital
+    def __init__(self, initial_capital=None, config=None):
+        """
+        Initialize with either unified config or traditional capital parameter
+        
+        Priority:
+        1. config parameter (TradingConfig object)
+        2. initial_capital parameter
+        3. Default to 30000
+        """
+        # Load from unified config if provided
+        if config is not None:
+            self.config = config
+            self.initial_capital = config.total_capital
+            self.symbols = config.symbols
+            self.max_positions = config.max_positions
+            self.leverage = config.max_leverage
+            self.base_stop_loss = config.base_stop_loss
+            self.base_take_profit = config.base_take_profit
+            self.rsi_period = config.rsi_period
+            self.rsi_buy = config.rsi_buy
+            self.rsi_sell = config.rsi_sell
+            self.ma_fast = config.ma_fast
+            self.ma_slow = config.ma_slow
+            self.high_confidence = config.high_confidence
+            self.low_confidence = config.low_confidence
+            
+            print(f"📊 Using unified config:")
+            print(f"   Capital: ${self.initial_capital:,.0f}")
+            print(f"   Leverage: {self.leverage}x")
+            print(f"   Max Positions: {self.max_positions}")
+        else:
+            # Use provided capital or default
+            self.config = None
+            self.initial_capital = initial_capital if initial_capital is not None else 30000
+            
+            # Default parameters (matching original)
+            self.symbols = ['NVDA', 'TSLA', 'PLTR', 'AMD', 'COIN', 'META', 'NET']
+            self.rsi_period = 14
+            self.rsi_buy = 55
+            self.rsi_sell = 45
+            self.ma_fast = 10
+            self.ma_slow = 30
+            self.max_positions = 3
+            self.leverage = 2.0
+            self.base_stop_loss = 0.08
+            self.base_take_profit = 0.25
+            self.high_confidence = 0.60
+            self.low_confidence = 0.30
+        
+        self.capital = self.initial_capital
         self.positions = {}
         self.trades = []
         self.equity_curve = []
-        
-        # V49 symbols
-        self.symbols = ['NVDA', 'TSLA', 'PLTR', 'AMD', 'COIN', 'META', 'NET']
-        
-        # V49 ORIGINAL signal parameters (keep what works!)
-        self.rsi_period = 14
-        self.rsi_buy = 55
-        self.rsi_sell = 45
-        self.ma_fast = 10
-        self.ma_slow = 30
-        
-        # OPTIMIZED POSITION MANAGEMENT
-        self.max_positions = 3
-        self.leverage = 2.0  # Reduced from 2.5 for better risk
         
         # BASE position sizing (will be adjusted by ML)
         self.base_position_size = 0.30  # 30% base
@@ -57,14 +98,6 @@ class MLOptimizedV49:
         # Key insight: ALWAYS take position, just vary the size
         self.min_position_size = 0.10   # Even low confidence gets 10%
         self.max_position_size = 0.50   # High confidence gets 50%
-        
-        # Risk parameters that adapt to position size
-        self.base_stop_loss = 0.08
-        self.base_take_profit = 0.25
-        
-        # ML confidence thresholds for sizing (not filtering!)
-        self.high_confidence = 0.60    # Above this = max position
-        self.low_confidence = 0.30     # Below this = min position
         
         # ML model settings
         self.min_ml_accuracy = 0.45    # Use ML even with moderate accuracy
@@ -691,10 +724,40 @@ if __name__ == "__main__":
     
     # Default to 2015-2025 if no argument
     start_date = sys.argv[1] if len(sys.argv) > 1 else '2025-01-01'
-    initial_capital = int(sys.argv[2]) if len(sys.argv) > 2 else 30000
     
-
-    backtest = MLOptimizedV49(initial_capital=initial_capital)
+    # Try to load from unified config first
+    config = None
+    initial_capital = None
+    
+    if UNIFIED_CONFIG_AVAILABLE and os.path.exists('trading_config.json'):
+        try:
+            config = TradingConfig()
+            print(f"\n✅ Loaded unified trading configuration")
+            print(f"   Capital: ${config.total_capital:,.0f}")
+            print(f"   Leverage: {config.max_leverage}x")
+            if config.positions:
+                total_in_positions = sum(p['capital_used'] for p in config.positions.values())
+                print(f"   Current Positions: {len(config.positions)} (${total_in_positions:,.0f})")
+        except Exception as e:
+            print(f"\n⚠️  Could not load unified config: {e}")
+            print(f"   Falling back to command line/default")
+            config = None
+    else:
+        if UNIFIED_CONFIG_AVAILABLE:
+            print(f"\nℹ️  trading_config.json not found")
+        print(f"   Using command line or default capital")
+    
+    # Fall back to command line or default if no config
+    if config is None:
+        initial_capital = int(sys.argv[2]) if len(sys.argv) > 2 else 30000
+        print(f"\n💰 Capital: ${initial_capital:,.0f} (command line/default)")
+    
+    # Create backtest with config or capital
+    print()
+    if config is not None:
+        backtest = MLOptimizedV49(config=config)
+    else:
+        backtest = MLOptimizedV49(initial_capital=initial_capital)
     
     if backtest.load_data(start_date=start_date):
         backtest.run_backtest()

@@ -1,12 +1,15 @@
 {
-  "total_capital": 16000,
-  "available_capital": -14576.309999999998,
+  "total_capital": 15700,
+  "available_capital": -11411.18,
+  "max_leverage": 2.5,
+  "buying_power": 39250.0,
   "capital_history": [
     {
-      "date": "2025-10-20T14:06:32.798271",
-      "amount": 16000,
-      "type": "initial"
+      "date": "2025-10-24T06:25:00.000000",
+      "amount": 15700,
+      "type": "sync_from_positions_txt",
+      "note": "Synced after manual TSLA close (35→27 shares)"
     }
   ],
-  "last_updated": "2025-10-24T05:54:45.071321"
+  "last_updated": "2025-10-24T06:25:00.000000"
 }

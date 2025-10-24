@@ -1,0 +1,82 @@
+╔═══════════════════════════════════════════════════════════════════════╗
+║                  🔧 QUICK FIX REFERENCE CARD                          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+📍 THE PROBLEM:
+   Script shows 35 TSLA shares, but you manually closed 8 → should be 27
+
+💡 THE CAUSE:
+   Script's adaptive_positions.json never learned about your manual close
+
+✅ THE FIX:
+   Sync positions.txt → adaptive_positions.json
+
+═══════════════════════════════════════════════════════════════════════
+
+🚀 EXACT COMMANDS TO RUN:
+
+# 1. Copy fix script to your upload directory
+cd /mnt/user-data/uploads
+cp ../outputs/fix_positions.py .
+
+# 2. Run the fix (syncs positions.txt → JSON files)
+python fix_positions.py
+
+# 3. Verify the fix worked
+python ml_adaptive_v49_alerts.py --once
+
+═══════════════════════════════════════════════════════════════════════
+
+📊 WHAT YOU'LL SEE AFTER FIX:
+
+✅ CORRECT Output:
+   📋 Current Positions:
+      AMD: 14 shares @ $231.84
+      NVDA: 65 shares @ $183.66
+      TSLA: 27 shares @ $441.76    ← Fixed!
+
+❌ OLD (Wrong) Output:
+      TSLA: 35 shares @ $439.79    ← This will be gone
+
+═══════════════════════════════════════════════════════════════════════
+
+💰 YOUR LEVERAGE STATUS:
+
+   Capital:              $15,700
+   Max Leverage:         2.5x
+   Buying Power:         $39,250
+   
+   Positions Cost:       $27,111
+   Leverage Used:        1.73x
+   
+   ✅ Status:            HEALTHY (within 2.5x limit)
+   ✅ Remaining Power:   $12,139
+
+═══════════════════════════════════════════════════════════════════════
+
+📝 DAILY WORKFLOW (Going Forward):
+
+   1. Check brokerage positions
+   2. Update positions.txt if any manual trades
+   3. Run: python fix_positions.py
+   4. Run: python ml_adaptive_v49_alerts.py --once
+   5. Act on signals
+
+═══════════════════════════════════════════════════════════════════════
+
+📁 FILES CREATED FOR YOU:
+
+   1. fix_positions.py          - Main sync script
+   2. analyze_positions.py      - Shows discrepancies
+   3. RESOLUTION_SUMMARY.md     - Full explanation
+   4. This quick reference card
+
+═══════════════════════════════════════════════════════════════════════
+
+❓ QUESTIONS?
+
+   • Script still showing 35 TSLA? → Didn't run fix_positions.py yet
+   • Negative capital showing? → Normal, script doesn't show leverage
+   • Need to add/remove positions? → Update positions.txt, then run fix
+
+═══════════════════════════════════════════════════════════════════════

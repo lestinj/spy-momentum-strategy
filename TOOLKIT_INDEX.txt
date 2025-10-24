@@ -1,0 +1,182 @@
+╔═══════════════════════════════════════════════════════════════════════╗
+║                     📦 TOOLKIT INDEX                                  ║
+║         ML Adaptive V49 - Position Sync & Fix Tools                  ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🎯 SIMPLEST FIX (Recommended)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Just run this ONE command:
+
+    cd /mnt/user-data/uploads
+    bash ../outputs/auto_fix.sh
+
+That's it! It does everything automatically:
+  ✅ Syncs positions.txt → JSON files
+  ✅ Verifies the sync worked
+  ✅ Tests the trading script
+  ✅ Shows you the results
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📚 DOCUMENTATION FILES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. COMPLETE_FIX_GUIDE.md
+   📖 Full walkthrough with step-by-step instructions
+   ⏱️  Read time: 5 minutes
+   
+2. RESOLUTION_SUMMARY.md
+   📄 Technical explanation of what happened
+   ⏱️  Read time: 3 minutes
+   
+3. QUICK_FIX_CARD.txt
+   ⚡ One-page quick reference
+   ⏱️  Read time: 1 minute
+   
+4. THIS FILE (TOOLKIT_INDEX.txt)
+   📋 Overview of all tools
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔧 TOOL SCRIPTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. auto_fix.sh ⭐
+   🎯 ONE-COMMAND automatic fix
+   💡 Use this if you want the simplest solution
+   
+   Usage:
+       cd /mnt/user-data/uploads
+       bash ../outputs/auto_fix.sh
+
+2. fix_positions.py ⭐
+   🔧 Main sync script
+   💡 Converts positions.txt → adaptive_positions.json
+   
+   Usage:
+       cd /mnt/user-data/uploads
+       python ../outputs/fix_positions.py
+   
+   What it does:
+       • Reads positions.txt (your correct data)
+       • Creates adaptive_positions.json (script format)
+       • Sets capital to $15,700
+       • Configures 2.5x leverage
+       • Creates capital_config.json
+
+3. verify_sync.py
+   ✅ Verification script
+   💡 Confirms the sync worked correctly
+   
+   Usage:
+       cd /mnt/user-data/uploads
+       python ../outputs/verify_sync.py
+   
+   What it checks:
+       • positions.txt matches JSON files
+       • All shares counts match
+       • All prices match
+       • Capital settings correct
+       • Leverage calculated properly
+
+4. analyze_positions.py
+   🔍 Diagnostic script
+   💡 Shows current discrepancies
+   
+   Usage:
+       cd /mnt/user-data/uploads
+       python ../outputs/analyze_positions.py
+   
+   What it shows:
+       • Side-by-side comparison
+       • Exact differences
+       • Over-leverage status
+       • Capital analysis
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📊 WHAT THE FIX DOES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+BEFORE (Incorrect):
+    TSLA: 35 shares @ $439.79 = $15,392.65  ❌
+    Total positions: $30,576.31
+    Capital: $16,000
+    Over-leverage: -$14,576.31
+
+AFTER (Correct):
+    TSLA: 27 shares @ $441.76 = $11,927.52  ✅
+    Total positions: $27,111.18
+    Capital: $15,700
+    Leverage: 1.73x (within 2.5x limit)  ✅
+    Buying Power Remaining: $12,138.82  ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🚀 RECOMMENDED WORKFLOW
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FIRST TIME (Now):
+    cd /mnt/user-data/uploads
+    bash ../outputs/auto_fix.sh        # Fixes everything
+    
+DAILY (Going forward):
+    1. Check brokerage positions
+    2. Update positions.txt if needed
+    3. Run: bash ../outputs/auto_fix.sh
+    4. Act on trading signals
+
+AFTER MANUAL TRADES:
+    1. Update positions.txt immediately
+    2. Run: bash ../outputs/auto_fix.sh
+    3. Verify output looks correct
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+❓ FAQ
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Q: Which tool should I use?
+A: Just run auto_fix.sh - it does everything!
+
+Q: Do I need to run this daily?
+A: Only if you make manual trades or want to re-sync
+
+Q: What if the fix doesn't work?
+A: Run analyze_positions.py to see what's wrong
+
+Q: Why does script show negative capital?
+A: It doesn't account for leverage. You have $12K buying power left!
+
+Q: Is my 1.73x leverage safe?
+A: Yes! You're using 69% of your 2.5x limit. Very healthy.
+
+Q: Can I still take new positions?
+A: Yes! You have $12,139 buying power remaining
+
+Q: What if I change my capital?
+A: Update the value in fix_positions.py (line 131)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📁 FILE LOCATIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+All tools:          /mnt/user-data/outputs/
+Your data:          /mnt/user-data/uploads/
+Your positions:     /mnt/user-data/uploads/positions.txt
+
+After fix creates:
+- adaptive_positions.json  (in /mnt/user-data/uploads/)
+- capital_config.json      (in /mnt/user-data/uploads/)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ READY TO GO?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    cd /mnt/user-data/uploads
+    bash ../outputs/auto_fix.sh
+
+That's it! ✨
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Need help? Review COMPLETE_FIX_GUIDE.md for detailed walkthrough.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

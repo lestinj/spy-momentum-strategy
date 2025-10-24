@@ -1,0 +1,136 @@
+╔═══════════════════════════════════════════════════════════════════════╗
+║                    📥 INSTALLATION INSTRUCTIONS                        ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Your trading script is still showing the OLD incorrect data because it's
+reading from JSON files on YOUR LOCAL MACHINE (not from Claude's system).
+
+═══════════════════════════════════════════════════════════════════════
+
+🎯 THE PROBLEM:
+
+Your script looks for these files in the same directory where you run it:
+   • adaptive_positions.json  (position tracking)
+   • capital_config.json      (capital settings)
+
+These files either:
+   a) Don't exist on your machine (script uses defaults)
+   b) Have OLD data (showing 35 TSLA shares)
+
+═══════════════════════════════════════════════════════════════════════
+
+✅ THE SOLUTION:
+
+1. Download these two files I created:
+   📄 adaptive_positions.json
+   📄 capital_config.json
+
+2. Place them in the SAME DIRECTORY as your ml_adaptive_v49_alerts.py script
+
+3. Run your script again
+
+═══════════════════════════════════════════════════════════════════════
+
+📝 STEP-BY-STEP:
+
+STEP 1: Find where your trading script lives
+   On your computer, locate: ml_adaptive_v49_alerts.py
+   
+   Example locations:
+   • Windows: C:\Users\YourName\trading\
+   • Mac/Linux: ~/trading/
+
+STEP 2: Download the JSON files
+   Both files are available here:
+   • adaptive_positions.json
+   • capital_config.json
+
+STEP 3: Copy them to your trading directory
+   Put them in the SAME folder as ml_adaptive_v49_alerts.py
+   
+   Your folder should look like:
+   📁 trading/
+      📄 ml_adaptive_v49_alerts.py
+      📄 ml_optimized_v49.py
+      📄 positions.txt
+      📄 adaptive_positions.json      ← ADD THIS
+      📄 capital_config.json          ← ADD THIS
+      📁 adaptive_ml_models/
+
+STEP 4: Run your script again
+   python ml_adaptive_v49_alerts.py --once
+
+═══════════════════════════════════════════════════════════════════════
+
+✅ AFTER INSTALLING, YOU SHOULD SEE:
+
+Capital: $15,700                    ← Changed from $16,000
+📋 Current Positions:
+   AMD: 14 shares @ $231.84
+   TSLA: 27 shares @ $441.76        ← Changed from 35 @ $439.79  ✅
+   NVDA: 65 shares @ $183.66
+
+Available Capital: $-11,411         ← This is normal (leverage)
+
+═══════════════════════════════════════════════════════════════════════
+
+📊 WHAT'S IN THE FILES:
+
+adaptive_positions.json contains:
+   ✅ AMD: 14 shares @ $231.84
+   ✅ NVDA: 65 shares @ $183.66
+   ✅ TSLA: 27 shares @ $441.76  (CORRECTED!)
+   ✅ Total cost: $27,111.18
+   ✅ Leverage: 1.73x
+
+capital_config.json contains:
+   ✅ Capital: $15,700
+   ✅ Max Leverage: 2.5x
+   ✅ Buying Power: $39,250
+
+═══════════════════════════════════════════════════════════════════════
+
+❓ TROUBLESHOOTING:
+
+Q: Script still shows 35 TSLA shares?
+A: Files not in correct directory. Check Step 3 above.
+
+Q: Script can't find JSON files?
+A: Make sure they're in the SAME folder as the .py script
+
+Q: Got a "file not found" error?
+A: The JSON files aren't where the script expects them
+
+Q: How do I find my script's directory?
+A: In your terminal/command prompt, type:
+   • Windows: cd (shows current directory)
+   • Mac/Linux: pwd (shows current directory)
+
+═══════════════════════════════════════════════════════════════════════
+
+🔄 GOING FORWARD:
+
+When you make manual trades:
+1. Update positions.txt (add/remove/modify lines)
+2. Recreate the JSON files using the fix_positions.py script
+   OR manually edit the JSON files
+3. Restart your trading script
+
+═══════════════════════════════════════════════════════════════════════
+
+💡 PRO TIP:
+
+Keep positions.txt as your "source of truth":
+• Easy to read and edit
+• Track all manual trades here
+• Use fix_positions.py to regenerate JSON files when needed
+
+═══════════════════════════════════════════════════════════════════════
+
+Need help? Make sure:
+   ✓ Files downloaded successfully
+   ✓ Files in correct directory
+   ✓ Files have .json extension (not .json.txt)
+   ✓ No typos in filenames
+
+═══════════════════════════════════════════════════════════════════════

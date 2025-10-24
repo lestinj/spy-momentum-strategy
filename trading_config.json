@@ -1,0 +1,88 @@
+{
+  "capital": {
+    "total_capital": 20000.0,
+    "max_leverage": 2.5,
+    "buying_power": 50000.0,
+    "last_updated": "2025-10-24T08:52:41.048447",
+    "capital_history": [
+      {
+        "date": "2025-10-24T06:30:00.000000",
+        "type": "initial_setup",
+        "amount": 15700,
+        "note": "Unified config initialization - corrected from positions.txt"
+      },
+      {
+        "date": "2025-10-24T08:52:41.049188",
+        "type": "deposit",
+        "amount": 4300.0,
+        "old_total": 15700,
+        "new_total": 20000.0,
+        "note": ""
+      }
+    ]
+  },
+  "positions": {
+    "AMD": {
+      "symbol": "AMD",
+      "shares": 14,
+      "entry_price": 231.84,
+      "entry_date": "2025-10-17",
+      "capital_used": 3245.76,
+      "entry_regime": "NORMAL",
+      "stop_loss": 0.08,
+      "take_profit": 0.25
+    },
+    "NVDA": {
+      "symbol": "NVDA",
+      "shares": 65,
+      "entry_price": 183.66,
+      "entry_date": "2025-10-20",
+      "capital_used": 11937.9,
+      "entry_regime": "NORMAL",
+      "stop_loss": 0.08,
+      "take_profit": 0.25
+    },
+    "TSLA": {
+      "symbol": "TSLA",
+      "shares": 27,
+      "entry_price": 441.76,
+      "entry_date": "2025-10-20",
+      "capital_used": 11927.52,
+      "entry_regime": "NORMAL",
+      "stop_loss": 0.08,
+      "take_profit": 0.25
+    }
+  },
+  "risk": {
+    "base_stop_loss": 0.08,
+    "base_take_profit": 0.25,
+    "max_positions": 3
+  },
+  "strategy": {
+    "symbols": [
+      "NVDA",
+      "TSLA",
+      "PLTR",
+      "AMD",
+      "COIN",
+      "META",
+      "NET"
+    ],
+    "rsi_period": 14,
+    "rsi_buy": 55,
+    "rsi_sell": 45,
+    "ma_fast": 10,
+    "ma_slow": 30
+  },
+  "ml": {
+    "min_accuracy": 0.45,
+    "high_confidence": 0.6,
+    "low_confidence": 0.3
+  },
+  "metadata": {
+    "created": "2025-10-24T06:30:00.000000",
+    "version": "1.0",
+    "description": "Unified configuration for live trading and backtesting",
+    "last_saved": "2025-10-24T08:52:41.049194"
+  }
+}

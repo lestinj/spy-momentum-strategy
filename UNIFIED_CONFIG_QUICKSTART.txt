@@ -1,0 +1,151 @@
+╔═══════════════════════════════════════════════════════════════════════╗
+║              🎯 UNIFIED CONFIG - QUICK START                          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+THE PROBLEM YOU IDENTIFIED:
+  Live trading script:  Uses adaptive_positions.json ($16K)
+  Backtest script:      Uses hardcoded value ($30K)
+  → Different configs = inconsistent results ❌
+
+THE SOLUTION:
+  Both scripts → trading_config.json (single source of truth) ✅
+
+═══════════════════════════════════════════════════════════════════════
+
+📥 SETUP (2 MINUTES):
+
+1. Download these 3 files to your trading directory:
+   • trading_config.py
+   • initialize_config.py  
+   • trading_config.json (optional - or generate it)
+
+2. Generate config (if needed):
+   python initialize_config.py
+   
+   This creates trading_config.json from your positions.txt
+
+3. Verify it worked:
+   python trading_config.py show
+
+═══════════════════════════════════════════════════════════════════════
+
+💻 DAILY COMMANDS:
+
+View everything:
+  python trading_config.py show
+
+Add capital:
+  python trading_config.py add-capital 10000 "Deposit"
+
+Change leverage:
+  python trading_config.py set-leverage 3.0
+
+Update positions after manual trades:
+  python trading_config.py load-positions
+
+═══════════════════════════════════════════════════════════════════════
+
+📊 WHAT'S IN trading_config.json:
+
+✓ Capital: $15,700
+✓ Leverage: 2.5x  
+✓ Buying Power: $39,250
+✓ Current Positions:
+    AMD:  14 shares @ $231.84
+    NVDA: 65 shares @ $183.66
+    TSLA: 27 shares @ $441.76
+✓ Risk Parameters (stop loss, take profit, max positions)
+✓ Strategy Settings (RSI, MA, symbols)
+✓ ML Parameters (confidence thresholds)
+
+═══════════════════════════════════════════════════════════════════════
+
+🔄 HOW IT WORKS:
+
+    ┌─────────────────────┐
+    │ trading_config.json │  ← Single Source of Truth
+    └─────────────────────┘
+            ↙          ↘
+    ┌──────────┐    ┌──────────┐
+    │  Live    │    │ Backtest │
+    │ Trading  │    │  Script  │
+    └──────────┘    └──────────┘
+    
+    Both read from same config = Always in sync!
+
+═══════════════════════════════════════════════════════════════════════
+
+✅ BENEFITS:
+
+  1. Add capital once → updates both scripts automatically
+  2. Backtest uses your ACTUAL current capital & positions
+  3. No more manual syncing between files
+  4. Clear audit trail of all changes
+  5. Version control friendly (single JSON file)
+
+═══════════════════════════════════════════════════════════════════════
+
+📝 EXAMPLE WORKFLOW:
+
+  # Morning check
+  python trading_config.py show
+  
+  # Run live trading
+  python ml_adaptive_v49_alerts.py --once
+  
+  # Run backtest (now uses YOUR actual capital!)
+  python ml_optimized_v49.py
+  
+  # Add capital
+  python trading_config.py add-capital 5000
+  
+  # Both scripts now use $20,700 automatically!
+
+═══════════════════════════════════════════════════════════════════════
+
+🎯 YOUR CURRENT STATUS:
+
+  Capital:             $15,700
+  Positions:           $27,111 (1.73x leverage)
+  Buying Power Left:   $12,139
+  
+  Healthy! Using 69% of 2.5x max leverage ✅
+
+═══════════════════════════════════════════════════════════════════════
+
+📁 FILES:
+
+  [trading_config.py]        - Config manager class
+  [initialize_config.py]     - One-time setup script
+  [trading_config.json]      - Your actual config (ready to use!)
+  [UNIFIED_CONFIG_GUIDE.md]  - Complete documentation
+
+═══════════════════════════════════════════════════════════════════════
+
+⚡ QUICK COMMANDS:
+
+  Show config:        python trading_config.py show
+  Set capital:        python trading_config.py set-capital 20000
+  Add capital:        python trading_config.py add-capital 5000
+  Set leverage:       python trading_config.py set-leverage 3.0
+  Load positions:     python trading_config.py load-positions
+
+═══════════════════════════════════════════════════════════════════════
+
+🚀 READY TO GO:
+
+  1. Download trading_config.json 
+  2. Place in same folder as your trading scripts
+  3. Run: python trading_config.py show
+  4. Done! Both scripts now use it automatically
+
+═══════════════════════════════════════════════════════════════════════
+
+💡 YOUR KEY INSIGHT:
+
+  "Both scripts should pull config from the same place so I can
+   add capital and keep things consistent"
+   
+  → Exactly right! That's what this solves. 🎯
+
+═══════════════════════════════════════════════════════════════════════
