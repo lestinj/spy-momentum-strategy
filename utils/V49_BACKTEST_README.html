@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V49_BACKTEST_README.md</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+            color: #333;
+        }
+        h1, h2, h3 { 
+            margin-top: 24px; 
+            font-weight: 600; 
+        }
+        h1 { font-size: 2em; border-bottom: 1px solid #eaecef; padding-bottom: 0.3em; }
+        h2 { font-size: 1.5em; border-bottom: 1px solid #eaecef; padding-bottom: 0.3em; }
+        code {
+            background: #f6f8fa;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        pre {
+            background: #f6f8fa;
+            padding: 16px;
+            border-radius: 6px;
+            overflow: auto;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 16px 0;
+        }
+        th, td {
+            border: 1px solid #dfe2e5;
+            padding: 8px 13px;
+        }
+        th { background: #f6f8fa; font-weight: 600; }
+        .header {
+            background: #0366d6;
+            color: white;
+            padding: 20px;
+            margin: -40px -20px 40px -20px;
+            border-radius: 6px 6px 0 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 style="margin: 0; border: none;">📄 V49_BACKTEST_README.md</h1>
+    </div>
+    <h1>V4.9 Backtest - Fixed Version</h1>
+<h2>What Was Fixed</h2>
+<h3>1. <strong>Date Format Issue</strong></h3>
+<ul>
+<li><strong>Problem:</strong> Script used <code>'24-01-01'</code> format (ambiguous)</li>
+<li><strong>Fix:</strong> Now uses <code>'2024-01-01'</code> format (clear)</li>
+<li><strong>Bonus:</strong> Auto-converts old format if you use it</li>
+</ul>
+<h3>2. <strong>Data Loading Threshold</strong></h3>
+<ul>
+<li><strong>Problem:</strong> Required &gt;100 days of data (too much for 3-6 month tests)</li>
+<li><strong>Fix:</strong> Now requires &gt;50 days (allows shorter backtests)</li>
+</ul>
+<h3>3. <strong>No Error Handling</strong></h3>
+<ul>
+<li><strong>Problem:</strong> If no symbols loaded, script would crash later</li>
+<li><strong>Fix:</strong> Now checks if data loaded and shows helpful error message</li>
+</ul>
+<h3>4. <strong>Missing Data Cleanup</strong></h3>
+<ul>
+<li><strong>Problem:</strong> NaN values could cause issues</li>
+<li><strong>Fix:</strong> Explicitly drops NaN rows after indicator calculation</li>
+</ul>
+<h3>5. <strong>File Naming</strong></h3>
+<ul>
+<li><strong>Problem:</strong> Mixed v48/v49 naming</li>
+<li><strong>Fix:</strong> Consistent V4.9 naming throughout</li>
+</ul>
+<h2>How To Use</h2>
+<h3>Quick 3-Month Test</h3>
+<div class="codehilite"><pre><span></span><code><span class="n">python</span> <span class="n">v49_backtest</span><span class="o">.</span><span class="n">py</span>
+<span class="c1"># Default: Last 6 months (2024-04-01 to now)</span>
+</code></pre></div>
+
+<h3>Custom Date Range</h3>
+<p>Edit the main section at bottom of file:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Last 3 months</span>
+<span class="n">strategy</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">start_date</span><span class="o">=</span><span class="s1">&#39;2024-07-01&#39;</span><span class="p">)</span>
+
+<span class="c1"># Last 6 months</span>
+<span class="n">strategy</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">start_date</span><span class="o">=</span><span class="s1">&#39;2024-04-01&#39;</span><span class="p">)</span>
+
+<span class="c1"># Year to date</span>
+<span class="n">strategy</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">start_date</span><span class="o">=</span><span class="s1">&#39;2024-01-01&#39;</span><span class="p">)</span>
+
+<span class="c1"># Full backtest (5 years)</span>
+<span class="n">strategy</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">start_date</span><span class="o">=</span><span class="s1">&#39;2020-01-01&#39;</span><span class="p">)</span>
+
+<span class="c1"># Specific range</span>
+<span class="n">strategy</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">start_date</span><span class="o">=</span><span class="s1">&#39;2024-01-01&#39;</span><span class="p">,</span> <span class="n">end_date</span><span class="o">=</span><span class="s1">&#39;2024-06-30&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<h2>Output Files</h2>
+<p>All files now use clean v49 naming:
+- <code>v49_trades.csv</code> - All trades
+- <code>v49_equity.csv</code> - Daily equity curve
+- <code>v49_monthly.csv</code> - Monthly performance
+- <code>v49_weekly.csv</code> - Weekly performance</p>
+<h2>What It Tests</h2>
+<p><strong>Strategies:</strong>
+- TREND_FOLLOW (RSI &gt; 55, price &gt; both MAs)
+- PULLBACK (RSI 45-55, price &gt; slow MA)</p>
+<p><strong>Parameters:</strong>
+- 3 positions @ 45% each
+- 2.5x leverage
+- 8% stop loss
+- 25% take profit
+- 14-day max hold</p>
+<p><strong>Symbols:</strong>
+NVDA, TSLA, PLTR, AMD, COIN, META, NET</p>
+<h2>Troubleshooting</h2>
+<h3>"Loaded 0 symbols"</h3>
+<ul>
+<li>Check internet connection</li>
+<li>Verify date range has enough data (need 50+ days)</li>
+<li>Try updating yfinance: <code>pip install --upgrade yfinance</code></li>
+</ul>
+<h3>"IndexError: list index out of range"</h3>
+<ul>
+<li>Usually means no data loaded</li>
+<li>Script now prevents this with early error check</li>
+</ul>
+<h3>Partial symbol loading</h3>
+<ul>
+<li>Normal - some symbols may have insufficient data for short ranges</li>
+<li>Script will run as long as at least 1 symbol loads</li>
+</ul>
+<h2>Example Output</h2>
+<div class="codehilite"><pre><span></span><code><span class="o">================================================================================</span>
+<span class="n">V4</span><span class="p">.</span><span class="mi">9</span> <span class="n">BACKTEST</span>
+<span class="n">TREND_FOLLOW</span> <span class="o">+</span> <span class="n">PULLBACK</span> <span class="n">strategies</span>
+<span class="o">================================================================================</span>
+
+<span class="err">📊</span> <span class="n">Loading</span> <span class="n">V4</span><span class="p">.</span><span class="mi">9</span> <span class="n">data</span> <span class="n">with</span> <span class="mi">2</span> <span class="n">WINNING</span> <span class="n">strategies</span><span class="p">...</span>
+<span class="n">Period</span><span class="p">:</span> <span class="mi">2024</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">01</span> <span class="n">to</span> <span class="mi">2025</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">18</span>
+
+<span class="err">✓</span> <span class="n">NVDA</span><span class="p">:</span> <span class="mi">142</span> <span class="n">days</span>
+<span class="err">✓</span> <span class="n">TSLA</span><span class="p">:</span> <span class="mi">142</span> <span class="n">days</span>
+<span class="err">✓</span> <span class="n">PLTR</span><span class="p">:</span> <span class="mi">142</span> <span class="n">days</span>
+<span class="err">✓</span> <span class="n">AMD</span><span class="p">:</span> <span class="mi">142</span> <span class="n">days</span>
+<span class="err">✓</span> <span class="n">COIN</span><span class="p">:</span> <span class="mi">142</span> <span class="n">days</span>
+<span class="err">✓</span> <span class="n">META</span><span class="p">:</span> <span class="mi">142</span> <span class="n">days</span>
+<span class="err">✓</span> <span class="n">NET</span><span class="p">:</span> <span class="mi">142</span> <span class="n">days</span>
+
+<span class="err">✓</span> <span class="n">Loaded</span> <span class="mi">7</span> <span class="n">symbols</span>
+
+<span class="o">================================================================================</span>
+<span class="n">V4</span><span class="p">.</span><span class="mi">9</span> <span class="o">-</span> <span class="n">WINNERS</span> <span class="n">ONLY</span>
+<span class="n">Only</span> <span class="n">TREND_FOLLOW</span> <span class="n">and</span> <span class="n">PULLBACK</span> <span class="n">strategies</span>
+<span class="o">================================================================================</span>
+
+<span class="err">📅</span> <span class="n">Period</span><span class="p">:</span> <span class="mi">2024</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">01</span> <span class="n">to</span> <span class="mi">2025</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">17</span>
+<span class="err">💰</span> <span class="n">Initial</span><span class="p">:</span> <span class="o">$</span><span class="mi">10</span><span class="p">,</span><span class="mi">000</span>
+
+<span class="p">[...</span> <span class="n">trades</span> <span class="n">execute</span> <span class="p">...]</span>
+
+<span class="o">================================================================================</span>
+<span class="n">BACKTEST</span> <span class="n">RESULTS</span> <span class="o">-</span> <span class="n">V4</span><span class="p">.</span><span class="mi">9</span> <span class="n">WINNERS</span> <span class="n">ONLY</span>
+<span class="o">================================================================================</span>
+<span class="n">Initial</span> <span class="n">Capital</span><span class="p">:</span>    <span class="o">$</span>         <span class="mi">10</span><span class="p">,</span><span class="mi">000</span>
+<span class="n">Final</span> <span class="n">Equity</span><span class="p">:</span>       <span class="o">$</span>         <span class="mi">15</span><span class="p">,</span><span class="mi">420</span>
+<span class="n">Total</span> <span class="n">Return</span><span class="p">:</span>                  <span class="mf">54.2</span><span class="err">%</span>
+<span class="n">CAGR</span><span class="p">:</span>                          <span class="mf">89.3</span><span class="err">%</span>
+<span class="n">Max</span> <span class="n">Drawdown</span><span class="p">:</span>                 <span class="o">-</span><span class="mf">23.4</span><span class="err">%</span>
+
+<span class="n">Total</span> <span class="n">Trades</span><span class="p">:</span>                     <span class="mi">23</span>
+<span class="n">Winners</span><span class="p">:</span>                          <span class="mi">12</span> <span class="p">(</span><span class="mf">52.2</span><span class="err">%</span><span class="p">)</span>
+<span class="n">Losers</span><span class="p">:</span>                           <span class="mi">11</span>
+<span class="n">Avg</span> <span class="n">Win</span><span class="p">:</span>            <span class="o">$</span>           <span class="mi">842</span>
+<span class="n">Avg</span> <span class="n">Loss</span><span class="p">:</span>           <span class="o">$</span>          <span class="o">-</span><span class="mi">421</span>
+<span class="n">Avg</span> <span class="n">Hold</span><span class="p">:</span>                      <span class="mf">11.3</span> <span class="n">days</span>
+<span class="n">Win</span><span class="o">/</span><span class="n">Loss</span> <span class="n">Ratio</span><span class="p">:</span>                <span class="mf">2.00</span><span class="n">x</span>
+<span class="o">================================================================================</span>
+
+<span class="err">📁</span> <span class="n">Files</span> <span class="n">saved</span><span class="p">:</span>
+   <span class="err">•</span> <span class="n">v49_trades</span><span class="p">.</span><span class="n">csv</span> <span class="o">-</span> <span class="n">All</span> <span class="mi">23</span> <span class="n">trades</span>
+   <span class="err">•</span> <span class="n">v49_equity</span><span class="p">.</span><span class="n">csv</span>
+   <span class="err">•</span> <span class="n">v49_monthly</span><span class="p">.</span><span class="n">csv</span>
+   <span class="err">•</span> <span class="n">v49_weekly</span><span class="p">.</span><span class="n">csv</span>
+
+<span class="err">✅</span> <span class="n">Complete</span><span class="err">!</span>
+</code></pre></div>
+
+<h2>Notes</h2>
+<ul>
+<li>Shorter backtests (3-6 months) will have fewer trades</li>
+<li>Performance will vary by date range selected</li>
+<li>Full 5-year backtest gives most reliable results</li>
+<li>Use short tests to validate strategy is working, not for final performance numbers</li>
+</ul>
+</body>
+</html>

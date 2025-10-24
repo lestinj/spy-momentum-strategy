@@ -338,7 +338,9 @@ class ImprovedBacktest:
         combined['aligned_count'] = combined['aligned_count'].fillna(0)
         
         # Generate signals
+        
         print("Generating trading signals...")
+        
         combined = self.generate_signals(combined)
         
         # Simulate trades

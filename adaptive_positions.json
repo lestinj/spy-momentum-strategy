@@ -1,0 +1,47 @@
+{
+  "positions": {
+    "AMD": {
+      "entry_price": 231.84,
+      "entry_date": "2025-10-17",
+      "shares": 14,
+      "capital_used": 3245.76,
+      "entry_value": 3245.76,
+      "leveraged_value": 3245.76,
+      "stop_loss": 0.06,
+      "take_profit": 0.3,
+      "ml_confidence": 0.45,
+      "position_size": 0.2,
+      "regime": "LOW_VOL"
+    },
+    "TSLA": {
+      "entry_price": 439.79,
+      "entry_date": "2025-10-20",
+      "shares": 35,
+      "capital_used": 15392.65,
+      "entry_value": 15392.65,
+      "leveraged_value": 15392.65,
+      "stop_loss": 0.06,
+      "take_profit": 0.3,
+      "ml_confidence": 0.45,
+      "position_size": 0.96,
+      "regime": "LOW_VOL"
+    },
+    "NVDA": {
+      "entry_price": 183.66,
+      "entry_date": "2025-10-20",
+      "shares": 65,
+      "capital_used": 11937.9,
+      "entry_value": 11937.9,
+      "leveraged_value": 11937.9,
+      "stop_loss": 0.06,
+      "take_profit": 0.3,
+      "ml_confidence": 0.42,
+      "position_size": 0.75,
+      "regime": "LOW_VOL"
+    }
+  },
+  "last_updated": "2025-10-20T16:48:40.103739",
+  "total_capital": 16000,
+  "available_capital": -14576.309999999998,
+  "current_regime": "LOW_VOL"
+}

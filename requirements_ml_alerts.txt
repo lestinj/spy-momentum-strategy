@@ -1,0 +1,5 @@
+# Requirements for V49 ML-Enhanced Trading Alerts
+yfinance>=0.2.18
+pandas>=2.0.0
+numpy>=1.24.0
+scikit-learn>=1.3.0

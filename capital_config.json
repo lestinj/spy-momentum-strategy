@@ -1,0 +1,12 @@
+{
+  "total_capital": 16000,
+  "available_capital": -14576.309999999998,
+  "capital_history": [
+    {
+      "date": "2025-10-20T14:06:32.798271",
+      "amount": 16000,
+      "type": "initial"
+    }
+  ],
+  "last_updated": "2025-10-24T05:54:45.071321"
+}

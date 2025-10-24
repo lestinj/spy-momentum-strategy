@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V51_QUICK_START.md</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+            color: #333;
+        }
+        h1, h2, h3 { 
+            margin-top: 24px; 
+            font-weight: 600; 
+        }
+        h1 { font-size: 2em; border-bottom: 1px solid #eaecef; padding-bottom: 0.3em; }
+        h2 { font-size: 1.5em; border-bottom: 1px solid #eaecef; padding-bottom: 0.3em; }
+        code {
+            background: #f6f8fa;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        pre {
+            background: #f6f8fa;
+            padding: 16px;
+            border-radius: 6px;
+            overflow: auto;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 16px 0;
+        }
+        th, td {
+            border: 1px solid #dfe2e5;
+            padding: 8px 13px;
+        }
+        th { background: #f6f8fa; font-weight: 600; }
+        .header {
+            background: #0366d6;
+            color: white;
+            padding: 20px;
+            margin: -40px -20px 40px -20px;
+            border-radius: 6px 6px 0 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 style="margin: 0; border: none;">📄 V51_QUICK_START.md</h1>
+    </div>
+    <h1>V51 Hybrid Strategy - Quick Reference Guide</h1>
+<h2>🎯 Strategy Overview</h2>
+<p><strong>V51 Hybrid</strong> combines the best elements of two proven approaches:
+- <strong>V48's Setup</strong>: 195% CAGR with 3 positions, static allocation
+- <strong>V50's Filters</strong>: Quality trade selection for improved win rate</p>
+<h2>📊 Key Parameters</h2>
+<h3>Position Management</h3>
+<ul>
+<li><strong>Max Positions</strong>: 3 simultaneous trades</li>
+<li><strong>Position Size</strong>: 33.33% per position (static allocation)</li>
+<li><strong>Initial Capital</strong>: $30,000</li>
+</ul>
+<h3>Entry Rules</h3>
+<ul>
+<li><strong>Primary Signal</strong>: RSI ≤ 30 (oversold)</li>
+<li><strong>Quality Filters</strong>:</li>
+<li>Minimum volume: 1,000,000 shares/day</li>
+<li>Price range: $5 - $500</li>
+<li>Volume spike: 1.5x average (50% above normal)</li>
+<li>RSI confirmation: 3 days of oversold readings</li>
+<li>Volatility filter: ATR &lt; 5%</li>
+<li>Momentum check: Not falling more than 10% in 5 days</li>
+</ul>
+<h3>Exit Rules</h3>
+<ul>
+<li><strong>Stop Loss</strong>: 8% below entry</li>
+<li><strong>Take Profit</strong>: 15% above entry</li>
+<li><strong>RSI Exit</strong>: RSI ≥ 70 (overbought)</li>
+</ul>
+<h2>🚀 How to Run</h2>
+<h3>Basic Usage</h3>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">v51_hybrid_strategy</span> <span class="kn">import</span> <span class="n">V51Hybrid</span>
+
+<span class="c1"># Initialize strategy</span>
+<span class="n">strategy</span> <span class="o">=</span> <span class="n">V51Hybrid</span><span class="p">(</span><span class="n">initial_capital</span><span class="o">=</span><span class="mi">30000</span><span class="p">)</span>
+
+<span class="c1"># Load data (will download from Yahoo Finance or use synthetic data)</span>
+<span class="n">strategy</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">start_date</span><span class="o">=</span><span class="s1">&#39;2024-01-01&#39;</span><span class="p">)</span>
+
+<span class="c1"># Run backtest</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">strategy</span><span class="o">.</span><span class="n">run_backtest</span><span class="p">()</span>
+</code></pre></div>
+
+<h3>Custom Parameters</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Modify parameters before running</span>
+<span class="n">strategy</span> <span class="o">=</span> <span class="n">V51Hybrid</span><span class="p">(</span><span class="n">initial_capital</span><span class="o">=</span><span class="mi">50000</span><span class="p">)</span>
+<span class="n">strategy</span><span class="o">.</span><span class="n">max_positions</span> <span class="o">=</span> <span class="mi">4</span>  <span class="c1"># Try 4 positions</span>
+<span class="n">strategy</span><span class="o">.</span><span class="n">rsi_entry</span> <span class="o">=</span> <span class="mi">25</span>  <span class="c1"># More aggressive entry</span>
+<span class="n">strategy</span><span class="o">.</span><span class="n">stop_loss_pct</span> <span class="o">=</span> <span class="mf">0.10</span>  <span class="c1"># Wider stops</span>
+</code></pre></div>
+
+<h2>📈 Expected Results</h2>
+<h3>Target Metrics</h3>
+<ul>
+<li><strong>CAGR</strong>: 195%+ (match or exceed V48)</li>
+<li><strong>Win Rate</strong>: 50%+ (improvement from quality filters)</li>
+<li><strong>Max Drawdown</strong>: &lt; 30%</li>
+<li><strong>Profit Factor</strong>: &gt; 2.0</li>
+</ul>
+<h3>What V48 Achieved (Baseline)</h3>
+<ul>
+<li><strong>CAGR</strong>: 195%</li>
+<li><strong>Setup</strong>: 3 positions, static allocation</li>
+<li><strong>Weakness</strong>: No quality filters (trades all signals)</li>
+</ul>
+<h3>What V51 Adds (Improvements)</h3>
+<ul>
+<li>✅ Volume confirmation (avoid low-liquidity trades)</li>
+<li>✅ Price range filters (avoid penny stocks and too-expensive stocks)</li>
+<li>✅ RSI confirmation (avoid false signals)</li>
+<li>✅ Volatility filter (avoid getting stopped out too easily)</li>
+<li>✅ Momentum validation (ensure recovery is starting)</li>
+</ul>
+<h2>📁 Output Files</h2>
+<p>After running, you'll get:
+1. <strong>v51_hybrid_trades.csv</strong> - Detailed trade log
+2. <strong>v51_hybrid_equity.csv</strong> - Daily equity curve</p>
+<h3>Trades CSV Columns</h3>
+<ul>
+<li>symbol, entry_date, entry_price, exit_date, exit_price</li>
+<li>shares, pnl, pnl_pct, exit_reason, hold_days</li>
+</ul>
+<h3>Equity CSV Columns</h3>
+<ul>
+<li>date, equity, positions, cash</li>
+</ul>
+<h2>🔍 Interpreting Results</h2>
+<h3>Success Indicators</h3>
+<p>✅ <strong>CAGR ≥ 195%</strong>: Strategy matches V48 baseline
+✅ <strong>Win Rate ≥ 50%</strong>: Quality filters working
+✅ <strong>Rejection Rate 30-50%</strong>: Filters are selective but not too strict
+✅ <strong>Profit Factor &gt; 2.0</strong>: Winners significantly outweigh losers</p>
+<h3>Warning Signs</h3>
+<p>⚠️ <strong>CAGR &lt; 180%</strong>: Filters may be too strict
+⚠️ <strong>Win Rate &lt; 45%</strong>: Quality filters not helping enough
+⚠️ <strong>Rejection Rate &gt; 70%</strong>: Missing too many opportunities
+⚠️ <strong>Max DD &gt; 35%</strong>: Risk too high</p>
+<h2>🎛️ Tuning Guide</h2>
+<h3>If Win Rate is Low (&lt; 45%)</h3>
+<ul>
+<li>Tighten quality filters:</li>
+<li>Increase <code>volume_spike_threshold</code> to 2.0</li>
+<li>Increase <code>rsi_confirm_period</code> to 5</li>
+<li>Lower <code>max_volatility</code> threshold</li>
+</ul>
+<h3>If CAGR is Low (&lt; 180%)</h3>
+<ul>
+<li>Loosen quality filters:</li>
+<li>Decrease <code>volume_spike_threshold</code> to 1.3</li>
+<li>Decrease <code>rsi_confirm_period</code> to 2</li>
+<li>Widen stop loss to 10%</li>
+</ul>
+<h3>If Max Drawdown is High (&gt; 35%)</h3>
+<ul>
+<li>Reduce risk:</li>
+<li>Decrease <code>max_positions</code> to 2</li>
+<li>Tighten stop loss to 6%</li>
+<li>Increase quality filter strictness</li>
+</ul>
+<h2>📊 Quality Filter Impact</h2>
+<p>The strategy reports how many signals were:
+- <strong>Accepted</strong>: Passed all quality filters
+- <strong>Rejected</strong>: Failed one or more filters</p>
+<p><strong>Ideal Rejection Rate</strong>: 30-50%
+- Too low (&lt; 20%): Filters not selective enough
+- Too high (&gt; 70%): Missing good opportunities</p>
+<h2>🔄 Comparison Workflow</h2>
+<ol>
+<li><strong>Run V51 Hybrid</strong> (this strategy)</li>
+<li><strong>Compare against V48 baseline</strong>:</li>
+<li>Is CAGR similar or better?</li>
+<li>Is win rate improved?</li>
+<li>Is drawdown acceptable?</li>
+<li><strong>Decision</strong>:</li>
+<li>If V51 &gt; V48: Use V51 for paper trading</li>
+<li>If V51 ≈ V48: Both are viable, choose based on preference</li>
+<li>If V51 &lt; V48: Tune parameters or revert to V48</li>
+</ol>
+<h2>🎯 Next Steps After Running</h2>
+<ol>
+<li><strong>Review Console Output</strong></li>
+<li>Check CAGR vs 195% target</li>
+<li>Check win rate vs 50% target</li>
+<li>
+<p>Review quality filter acceptance rate</p>
+</li>
+<li>
+<p><strong>Analyze Trade Details</strong></p>
+</li>
+<li>Open <code>v51_hybrid_trades.csv</code></li>
+<li>Look for patterns in winners/losers</li>
+<li>
+<p>Check exit reasons distribution</p>
+</li>
+<li>
+<p><strong>Examine Equity Curve</strong></p>
+</li>
+<li>Open <code>v51_hybrid_equity.csv</code></li>
+<li>Plot equity over time</li>
+<li>
+<p>Identify drawdown periods</p>
+</li>
+<li>
+<p><strong>Make Decision</strong></p>
+</li>
+<li>If successful: Move to paper trading</li>
+<li>If needs work: Tune parameters and re-run</li>
+<li>If unsuccessful: Consider reverting to V48</li>
+</ol>
+<h2>⚙️ Advanced Customization</h2>
+<h3>Add Your Own Symbols</h3>
+<div class="codehilite"><pre><span></span><code><span class="n">strategy</span> <span class="o">=</span> <span class="n">V51Hybrid</span><span class="p">(</span><span class="n">initial_capital</span><span class="o">=</span><span class="mi">30000</span><span class="p">)</span>
+<span class="n">strategy</span><span class="o">.</span><span class="n">symbols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;AAPL&#39;</span><span class="p">,</span> <span class="s1">&#39;MSFT&#39;</span><span class="p">,</span> <span class="s1">&#39;TSLA&#39;</span><span class="p">,</span> <span class="s1">&#39;NVDA&#39;</span><span class="p">]</span>  <span class="c1"># Custom list</span>
+</code></pre></div>
+
+<h3>Adjust Risk Parameters</h3>
+<div class="codehilite"><pre><span></span><code><span class="n">strategy</span><span class="o">.</span><span class="n">stop_loss_pct</span> <span class="o">=</span> <span class="mf">0.12</span>  <span class="c1"># 12% stop</span>
+<span class="n">strategy</span><span class="o">.</span><span class="n">take_profit_pct</span> <span class="o">=</span> <span class="mf">0.20</span>  <span class="c1"># 20% target</span>
+</code></pre></div>
+
+<h3>Modify Quality Filters</h3>
+<div class="codehilite"><pre><span></span><code><span class="n">strategy</span><span class="o">.</span><span class="n">min_volume</span> <span class="o">=</span> <span class="mi">2000000</span>  <span class="c1"># Higher liquidity requirement</span>
+<span class="n">strategy</span><span class="o">.</span><span class="n">volume_spike_threshold</span> <span class="o">=</span> <span class="mf">2.0</span>  <span class="c1"># Stronger volume confirmation</span>
+<span class="n">strategy</span><span class="o">.</span><span class="n">rsi_confirm_period</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># More confirmation</span>
+</code></pre></div>
+
+<h2>📞 Quick Troubleshooting</h2>
+<h3>"No trades generated"</h3>
+<ul>
+<li>Quality filters may be too strict</li>
+<li>Try loosening filters or checking data quality</li>
+</ul>
+<h3>"Win rate still low"</h3>
+<ul>
+<li>Filters may not be strict enough</li>
+<li>Consider tightening quality criteria</li>
+</ul>
+<h3>"CAGR much lower than V48"</h3>
+<ul>
+<li>Filters rejecting too many good trades</li>
+<li>Try reducing filter strictness</li>
+</ul>
+<h3>"Max drawdown too high"</h3>
+<ul>
+<li>Reduce position size or max positions</li>
+<li>Tighten stop loss</li>
+</ul>
+<h2>🏁 Success Checklist</h2>
+<p>Before considering V51 for paper trading:
+- [ ] CAGR ≥ 195% (or within 10% of V48)
+- [ ] Win rate ≥ 50%
+- [ ] Max drawdown &lt; 30%
+- [ ] Profit factor &gt; 2.0
+- [ ] Quality filters rejecting 30-50% of signals
+- [ ] Results make sense and are explainable
+- [ ] Backtested on sufficient data (1+ years)</p>
+<h2>💡 Key Insights</h2>
+<p><strong>What makes V51 different?</strong>
+- Same proven position structure as V48
+- Adds intelligent filtering to avoid bad trades
+- Aims to maintain returns while improving win rate</p>
+<p><strong>Philosophy:</strong>
+- Quality over quantity
+- Protect V48's performance
+- Improve risk-adjusted returns
+- Make trading more consistent</p>
+<p><strong>Remember:</strong>
+If V51 doesn't beat or match V48, that's okay! V48 already performs well. The goal is improvement, not perfection.</p>
+</body>
+</html>

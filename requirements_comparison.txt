@@ -1,0 +1,9 @@
+# Requirements for running backtest comparisons
+yfinance>=0.2.18
+pandas>=2.0.0
+numpy>=1.24.0
+scikit-learn>=1.3.0
+xgboost>=1.7.0
+lightgbm>=3.3.0
+matplotlib>=3.5.0  # For charts (optional)
+seaborn>=0.12.0   # For enhanced charts (optional)

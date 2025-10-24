@@ -1,0 +1,10 @@
+ML-OPTIMIZED V49 BACKTEST RESULTS
+==================================================
+Period: 2025-01-02 to 2025-10-21
+Initial Capital: $30,000
+Final Equity: $59,863
+CAGR: 137.3%
+Sharpe Ratio: 2.70
+Max Drawdown: -14.5%
+Win Rate: 69.4%
+Total Trades: 36

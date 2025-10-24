@@ -1,0 +1,200 @@
+date,is_good,score,reasons
+2025-01-02,True,1.0,['Insufficient data']
+2025-01-03,True,1.0,['Insufficient data']
+2025-01-06,True,1.0,['Insufficient data']
+2025-01-07,True,1.0,['Insufficient data']
+2025-01-08,True,1.0,['Insufficient data']
+2025-01-10,True,1.0,['Insufficient data']
+2025-01-13,True,1.0,['Insufficient data']
+2025-01-14,True,1.0,['Insufficient data']
+2025-01-15,True,1.0,['Insufficient data']
+2025-01-16,True,1.0,['Insufficient data']
+2025-01-17,True,1.0,['Insufficient data']
+2025-01-21,True,1.0,['Insufficient data']
+2025-01-22,True,1.0,['Insufficient data']
+2025-01-23,True,1.0,['Insufficient data']
+2025-01-24,True,1.0,['Insufficient data']
+2025-01-27,True,1.0,['Insufficient data']
+2025-01-28,True,1.0,['Insufficient data']
+2025-01-29,True,1.0,['Insufficient data']
+2025-01-30,True,1.0,['Insufficient data']
+2025-01-31,True,1.0,[]
+2025-02-03,True,1.0,[]
+2025-02-04,True,1.0,[]
+2025-02-05,True,1.0,[]
+2025-02-06,True,1.0,[]
+2025-02-07,True,1.0,[]
+2025-02-10,True,1.0,[]
+2025-02-11,True,1.0,[]
+2025-02-12,True,1.0,[]
+2025-02-13,True,1.0,[]
+2025-02-14,True,1.0,[]
+2025-02-18,True,1.0,[]
+2025-02-19,True,1.0,[]
+2025-02-20,True,1.0,[]
+2025-02-21,True,0.75,['Market RSI momentum: -14.1']
+2025-02-24,False,0.5,"['Equity momentum: -5.6%', 'Market RSI momentum: -16.6']"
+2025-02-25,False,0.5,"['Equity momentum: -11.2%', 'Market RSI momentum: -14.3']"
+2025-02-26,False,0.5,"['Equity momentum: -13.1%', 'Market RSI momentum: -13.3']"
+2025-02-27,False,0.5,"['Equity momentum: -13.5%', 'Market RSI momentum: -25.2']"
+2025-02-28,False,0.5,"['Equity momentum: -12.8%', 'Market RSI momentum: -29.5']"
+2025-03-03,False,0.5,"['Equity momentum: -12.3%', 'Market RSI momentum: -38.0']"
+2025-03-04,False,0.5,"['Equity momentum: -13.6%', 'Market RSI momentum: -35.7']"
+2025-03-05,False,0.5,"['Equity momentum: -11.8%', 'Market RSI momentum: -38.3']"
+2025-03-06,False,0.5,"['Equity momentum: -11.3%', 'Market RSI momentum: -39.5']"
+2025-03-07,False,0.5,"['Equity momentum: -10.6%', 'Market RSI momentum: -39.1']"
+2025-03-10,False,0.5,"['Equity momentum: -10.5%', 'Market RSI momentum: -40.1']"
+2025-03-11,False,0.5,"['Equity momentum: -8.8%', 'Market RSI momentum: -37.6']"
+2025-03-12,False,0.5,"['Equity momentum: -9.6%', 'Market RSI momentum: -28.5']"
+2025-03-13,False,0.5,"['Equity momentum: -11.2%', 'Market RSI momentum: -29.6']"
+2025-03-14,False,0.5,"['Equity momentum: -11.6%', 'Market RSI momentum: -26.1']"
+2025-03-17,False,0.5,"['Equity momentum: -11.7%', 'Market RSI momentum: -27.0']"
+2025-03-18,False,0.5,"['Equity momentum: -12.4%', 'Market RSI momentum: -25.0']"
+2025-03-19,False,0.5,"['Equity momentum: -11.7%', 'Market RSI momentum: -14.3']"
+2025-03-20,False,0.5,"['Equity momentum: -9.5%', 'Market RSI momentum: -11.5']"
+2025-03-21,True,0.75,['Equity momentum: -7.1%']
+2025-03-24,True,0.75,['Failed bounces: 80%']
+2025-03-25,True,0.75,['Failed bounces: 80%']
+2025-03-26,True,0.75,['Failed bounces: 80%']
+2025-03-27,True,0.75,['Failed bounces: 80%']
+2025-03-28,True,0.75,['Failed bounces: 80%']
+2025-03-31,True,0.75,['Failed bounces: 80%']
+2025-04-01,True,0.75,['Failed bounces: 80%']
+2025-04-02,True,0.75,['Failed bounces: 80%']
+2025-04-03,True,0.75,['Failed bounces: 100%']
+2025-04-04,False,0.5,"['Equity momentum: -7.1%', 'Failed bounces: 71%']"
+2025-04-07,False,0.5,"['Equity momentum: -5.4%', 'Failed bounces: 71%']"
+2025-04-08,False,0.5,"['Equity momentum: -6.1%', 'Failed bounces: 71%']"
+2025-04-09,True,0.75,['Failed bounces: 71%']
+2025-04-10,True,0.75,['Failed bounces: 71%']
+2025-04-11,True,0.75,['Failed bounces: 71%']
+2025-04-14,True,0.75,['Failed bounces: 71%']
+2025-04-15,True,0.75,['Failed bounces: 71%']
+2025-04-16,True,0.75,['Failed bounces: 71%']
+2025-04-17,False,0.5,"['Equity momentum: -5.0%', 'Failed bounces: 71%']"
+2025-04-21,False,0.5,"['Equity momentum: -8.6%', 'Failed bounces: 86%']"
+2025-04-22,False,0.5,"['Equity momentum: -8.9%', 'Failed bounces: 86%']"
+2025-04-23,False,0.5,"['Equity momentum: -6.1%', 'Failed bounces: 86%']"
+2025-04-24,True,0.75,['Failed bounces: 86%']
+2025-04-25,True,0.75,['Failed bounces: 86%']
+2025-04-28,True,0.75,['Failed bounces: 86%']
+2025-04-29,True,0.75,['Failed bounces: 86%']
+2025-04-30,True,0.75,['Failed bounces: 86%']
+2025-05-01,True,0.75,['Failed bounces: 86%']
+2025-05-02,True,0.75,['Failed bounces: 86%']
+2025-05-05,True,0.75,['Failed bounces: 86%']
+2025-05-06,True,0.75,['Failed bounces: 86%']
+2025-05-07,True,0.75,['Failed bounces: 86%']
+2025-05-08,True,0.75,['Failed bounces: 86%']
+2025-05-09,True,0.75,['Failed bounces: 86%']
+2025-05-12,True,0.75,['Failed bounces: 86%']
+2025-05-13,True,0.75,['Failed bounces: 86%']
+2025-05-14,True,0.75,['Failed bounces: 86%']
+2025-05-15,True,0.75,['Failed bounces: 86%']
+2025-05-16,True,0.75,['Failed bounces: 86%']
+2025-05-19,True,0.75,['Failed bounces: 86%']
+2025-05-20,True,0.75,['Failed bounces: 86%']
+2025-05-21,True,0.75,['Failed bounces: 86%']
+2025-05-22,True,0.75,['Failed bounces: 86%']
+2025-05-23,True,0.75,['Failed bounces: 86%']
+2025-05-27,True,0.75,['Failed bounces: 86%']
+2025-05-28,True,0.75,['Failed bounces: 86%']
+2025-05-29,True,0.75,['Failed bounces: 86%']
+2025-05-30,True,0.75,['Failed bounces: 86%']
+2025-06-02,True,0.75,['Failed bounces: 86%']
+2025-06-03,True,0.75,['Failed bounces: 86%']
+2025-06-04,True,0.75,['Failed bounces: 86%']
+2025-06-05,False,0.5,"['Failed bounces: 86%', 'Market RSI momentum: -14.1']"
+2025-06-06,False,0.5,"['Failed bounces: 86%', 'Market RSI momentum: -17.0']"
+2025-06-09,False,0.5,"['Failed bounces: 86%', 'Market RSI momentum: -19.8']"
+2025-06-10,False,0.5,"['Failed bounces: 86%', 'Market RSI momentum: -17.4']"
+2025-06-11,False,0.5,"['Failed bounces: 86%', 'Market RSI momentum: -18.4']"
+2025-06-12,False,0.5,"['Failed bounces: 86%', 'Market RSI momentum: -24.3']"
+2025-06-13,False,0.5,"['Failed bounces: 86%', 'Market RSI momentum: -16.8']"
+2025-06-16,False,0.5,"['Failed bounces: 86%', 'Market RSI momentum: -17.2']"
+2025-06-17,False,0.5,"['Failed bounces: 86%', 'Market RSI momentum: -15.0']"
+2025-06-18,False,0.5,"['Failed bounces: 86%', 'Market RSI momentum: -12.8']"
+2025-06-20,True,0.75,['Failed bounces: 86%']
+2025-06-23,True,0.75,['Failed bounces: 86%']
+2025-06-24,True,0.75,['Failed bounces: 86%']
+2025-06-25,False,0.5,"['Failed bounces: 86%', 'Market RSI momentum: -10.0']"
+2025-06-26,True,0.75,['Failed bounces: 86%']
+2025-06-27,True,0.75,['Failed bounces: 86%']
+2025-06-30,True,0.75,['Failed bounces: 86%']
+2025-07-01,False,0.5,"['Failed bounces: 86%', 'Market RSI momentum: -11.6']"
+2025-07-02,True,0.75,['Failed bounces: 86%']
+2025-07-03,True,0.75,['Failed bounces: 86%']
+2025-07-07,True,0.75,['Failed bounces: 86%']
+2025-07-08,True,0.75,['Failed bounces: 86%']
+2025-07-09,True,0.75,['Failed bounces: 86%']
+2025-07-10,True,0.75,['Failed bounces: 86%']
+2025-07-11,True,0.75,['Failed bounces: 86%']
+2025-07-14,True,0.75,['Failed bounces: 86%']
+2025-07-15,True,0.75,['Failed bounces: 86%']
+2025-07-16,True,0.75,['Failed bounces: 86%']
+2025-07-17,True,0.75,['Failed bounces: 86%']
+2025-07-18,True,0.75,['Failed bounces: 86%']
+2025-07-21,True,0.75,['Failed bounces: 86%']
+2025-07-22,True,0.75,['Failed bounces: 86%']
+2025-07-23,True,0.75,['Failed bounces: 86%']
+2025-07-24,True,0.75,['Failed bounces: 86%']
+2025-07-25,True,0.75,['Failed bounces: 86%']
+2025-07-28,True,0.75,['Failed bounces: 86%']
+2025-07-29,True,0.75,['Failed bounces: 86%']
+2025-07-30,True,0.75,['Failed bounces: 86%']
+2025-07-31,True,0.75,['Failed bounces: 86%']
+2025-08-01,True,0.75,['Failed bounces: 86%']
+2025-08-04,True,0.75,['Failed bounces: 75%']
+2025-08-05,True,0.75,['Failed bounces: 75%']
+2025-08-06,True,0.75,['Failed bounces: 75%']
+2025-08-07,True,0.75,['Failed bounces: 75%']
+2025-08-08,True,0.75,['Failed bounces: 75%']
+2025-08-11,True,0.75,['Failed bounces: 75%']
+2025-08-12,True,0.75,['Failed bounces: 75%']
+2025-08-13,True,0.75,['Failed bounces: 75%']
+2025-08-14,True,0.75,['Failed bounces: 75%']
+2025-08-15,True,0.75,['Failed bounces: 75%']
+2025-08-18,True,0.75,['Failed bounces: 75%']
+2025-08-19,False,0.5,"['Failed bounces: 75%', 'Market RSI momentum: -20.9']"
+2025-08-20,False,0.5,"['Failed bounces: 75%', 'Market RSI momentum: -23.0']"
+2025-08-21,False,0.5,"['Failed bounces: 75%', 'Market RSI momentum: -14.8']"
+2025-08-22,False,0.5,"['Failed bounces: 75%', 'Market RSI momentum: -19.3']"
+2025-08-25,False,0.5,"['Failed bounces: 75%', 'Market RSI momentum: -18.6']"
+2025-08-26,False,0.5,"['Failed bounces: 75%', 'Market RSI momentum: -13.3']"
+2025-08-27,False,0.5,"['Failed bounces: 75%', 'Market RSI momentum: -16.5']"
+2025-08-28,False,0.5,"['Failed bounces: 75%', 'Market RSI momentum: -20.4']"
+2025-08-29,False,0.5,"['Failed bounces: 75%', 'Market RSI momentum: -14.9']"
+2025-09-02,False,0.5,"['Failed bounces: 75%', 'Market RSI momentum: -24.2']"
+2025-09-03,False,0.5,"['Failed bounces: 75%', 'Market RSI momentum: -22.3']"
+2025-09-04,False,0.5,"['Failed bounces: 75%', 'Market RSI momentum: -17.5']"
+2025-09-05,False,0.5,"['Failed bounces: 75%', 'Market RSI momentum: -16.7']"
+2025-09-08,False,0.5,"['Failed bounces: 75%', 'Market RSI momentum: -16.1']"
+2025-09-09,True,0.75,['Failed bounces: 75%']
+2025-09-10,True,0.75,['Failed bounces: 75%']
+2025-09-11,True,0.75,['Failed bounces: 75%']
+2025-09-12,True,0.75,['Failed bounces: 75%']
+2025-09-15,True,0.75,['Failed bounces: 75%']
+2025-09-16,True,0.75,['Failed bounces: 75%']
+2025-09-17,True,0.75,['Failed bounces: 75%']
+2025-09-18,True,0.75,['Failed bounces: 75%']
+2025-09-19,True,0.75,['Failed bounces: 75%']
+2025-09-22,True,0.75,['Failed bounces: 75%']
+2025-09-23,True,0.75,['Failed bounces: 75%']
+2025-09-24,True,0.75,['Failed bounces: 75%']
+2025-09-25,True,0.75,['Failed bounces: 75%']
+2025-09-26,True,0.75,['Failed bounces: 75%']
+2025-09-29,True,0.75,['Failed bounces: 75%']
+2025-09-30,True,0.75,['Failed bounces: 75%']
+2025-10-01,True,0.75,['Failed bounces: 75%']
+2025-10-02,True,0.75,['Failed bounces: 75%']
+2025-10-03,True,0.75,['Failed bounces: 75%']
+2025-10-06,True,0.75,['Failed bounces: 67%']
+2025-10-07,True,0.75,['Failed bounces: 67%']
+2025-10-08,True,0.75,['Failed bounces: 67%']
+2025-10-09,True,0.75,['Failed bounces: 67%']
+2025-10-10,True,0.75,['Failed bounces: 67%']
+2025-10-13,True,0.75,['Failed bounces: 67%']
+2025-10-14,True,0.75,['Failed bounces: 67%']
+2025-10-15,True,0.75,['Failed bounces: 67%']
+2025-10-16,True,0.75,['Failed bounces: 67%']
+2025-10-17,False,0.5,"['Failed bounces: 67%', 'Market RSI momentum: -15.6']"
